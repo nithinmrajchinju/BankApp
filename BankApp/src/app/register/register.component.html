@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="mb-3">
+          <h1>{{bankname}} Bank</h1>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">AccountNumber</label>
+          <input type="text" class="form-control" name="accno" formControlName="accno">
+          <div class="error"
+            *ngIf="(this.registerForm.get('accno')?.touched||this.registerForm.get('accno')?.dirty)&&this.registerForm.get('accno')?.errors">
+            Invalid AccountNumber</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" formControlName="username">
+          <div class="error"
+            *ngIf="(this.registerForm.get('username')?.touched||this.registerForm.get('username')?.dirty)&&this.registerForm.get('username')?.errors">
+            Invalid Username</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" formControlName="password">
+          <div class="error"
+            *ngIf="(this.registerForm.get('password')?.touched||this.registerForm.get('password')?.dirty)&&this.registerForm.get('password')?.errors">
+            Invalid Password</div>
+        </div>
+        <div class="row d-grid gap-2">
+          <button type="submit" class="btn btn-primary">CreateAcconut</button>
+        </div>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

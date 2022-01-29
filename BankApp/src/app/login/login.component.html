@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <h1>{{bankname}} Bank</h1>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">AccountNumber</label>
+          <input type="text" class="form-control" id="accno" name="accno" formControlName="accno">
+          <div class="error"
+            *ngIf="(this.loginForm.get('accno')?.touched||this.loginForm.get('accno')?.dirty)&&this.loginForm.get('accno')?.errors">
+            Invalid AccountNumber</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" formControlName="password">
+          <div class="error"
+            *ngIf="(this.loginForm.get('password')?.touched||this.loginForm.get('password')?.dirty)&&this.loginForm.get('password')?.errors">
+            Invalid Password</div>
+        </div>
+        <div class="row d-grid gap-2">
+          <button type="submit" class="btn btn-primary">login</button>
+          <button (click)="signup()" class="btn btn-secondary">signup</button>
+        </div>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
